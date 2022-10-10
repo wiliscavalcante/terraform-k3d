@@ -20,3 +20,18 @@ example usage:
 
 * https://learn.hashicorp.com/tutorials/terraform/associate-study
 * https://github.com/rancher/k3d
+
+## Setup terraform
+terraform init -backend-config=backend-config/uat.tfvars
+terraform plan --var-file=variables-uat.tfvars -out=uat.plan
+terraform destroy 
+
+## multi environment
+terraform init -reconfigure -backend-config=backend-config/prod.tfvars
+
+##Using make to setup terraform
+### Init
+make init ENV=uat
+
+### Plan
+make plan ENV=uat

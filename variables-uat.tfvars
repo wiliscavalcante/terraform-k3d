@@ -1,4 +1,4 @@
-k3d_cluster_name    = ["k3d"]
+k3d_cluster_name    = ["cluster-uat"]
 k3d_cluster_port    = 6550
 k3d_cluster_ip      = "127.0.0.1"
 k3d_cluster_lb_port = 30000

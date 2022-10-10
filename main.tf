@@ -20,7 +20,7 @@ resource "null_resource" "cluster" {
     k3s_version   = var.k3s_version
   }
   provisioner "local-exec" {
-    command = "k3d cluster create ${each.key} --agents ${var.agent_count} --servers ${var.server_count} --api-port ${var.k3d_cluster_ip}:${var.k3d_cluster_port} --port ${local.host_lb_port}:${var.k3d_cluster_lb_port}@loadbalancer --image rancher/k3s:${var.k3s_version}"
+    command = "k3d cluster create ${each.key} --agents ${var.agent_count} --servers ${var.server_count} --api-port ${var.k3d_cluster_ip}:${var.k3d_cluster_port} --port ${local.host_lb_port}:${var.k3d_cluster_lb_port}@loadbalancer --image rancher/k3s:${var.k3s_version} --k3s-arg --disable=traefik@server:0"
   }
 }
 
